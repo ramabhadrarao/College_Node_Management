@@ -52,6 +52,39 @@ exports.createScholarshipType = catchAsync(async (req, res, next) => {
 });
 
 /**
+ * Update scholarship type
+ * @route PATCH /api/scholarships/types/:id
+ * @access Admin
+ */
+exports.updateScholarshipType = catchAsync(async (req, res, next) => {
+  const { id } = req.params;
+  const { name, description, source, renewable, renewalCriteria, maxAmount } = req.body;
+  
+  const scholarshipType = await ScholarshipType.findById(id);
+  
+  if (!scholarshipType) {
+    return next(new AppError('Scholarship type not found', 404));
+  }
+  
+  // Update fields
+  if (name) scholarshipType.name = name;
+  if (description !== undefined) scholarshipType.description = description;
+  if (source !== undefined) scholarshipType.source = source;
+  if (renewable !== undefined) scholarshipType.renewable = renewable === 'true' || renewable === true;
+  if (renewalCriteria !== undefined) scholarshipType.renewalCriteria = renewalCriteria;
+  if (maxAmount !== undefined) scholarshipType.maxAmount = parseFloat(maxAmount) || 0;
+  
+  await scholarshipType.save();
+  
+  res.status(200).json({
+    status: 'success',
+    data: {
+      scholarshipType
+    }
+  });
+});
+
+/**
  * Award scholarship to student
  * @route POST /api/scholarships/award
  * @access Admin
@@ -307,3 +340,5 @@ exports.generateScholarshipReport = catchAsync(async (req, res, next) => {
     }
   });
 });
+
+module.exports = exports;

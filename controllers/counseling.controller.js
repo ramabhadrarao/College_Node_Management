@@ -5,6 +5,7 @@ const Counselor = require('../models/Counselor');
 const CounselingService = require('../models/CounselingService');
 const Student = require('../models/Student');
 const User = require('../models/User');
+const Role = require('../models/Role');
 const notificationService = require('../services/notificationService');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
@@ -63,7 +64,7 @@ exports.createCounselor = catchAsync(async (req, res, next) => {
     }
   } else {
     // Create new user for counselor
-    const password = generateRandomPassword();
+    const password = Math.random().toString(36).slice(-8);
     user = await User.create({
       username: email,
       email,
@@ -299,7 +300,6 @@ exports.updateAppointmentStatus = catchAsync(async (req, res, next) => {
     return next(new AppError('Invalid status value', 400));
   }
   
-  // Find appointment
   const appointment = await CounselingAppointment.findById(id);
   
   if (!appointment) {
@@ -347,3 +347,5 @@ exports.updateAppointmentStatus = catchAsync(async (req, res, next) => {
     }
   });
 });
+
+module.exports = exports;

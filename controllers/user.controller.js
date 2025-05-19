@@ -2,39 +2,46 @@
 const mongoose = require('mongoose');
 const User = require('../models/User');
 const Role = require('../models/Role');
+const Permission = require('../models/Permission');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 const fileService = require('../services/fileService');
+const emailService = require('../services/emailService');
 const { generateRandomPassword } = require('../utils/helpers');
 
 /**
- * Get all users with pagination and filtering
+ * Get all users with filtering and pagination
  * @route GET /api/users
  * @access Admin
  */
 exports.getAllUsers = catchAsync(async (req, res, next) => {
-  // Build query
-  const query = {};
+  // Build filters
+  const filter = {};
   
   // Filter by role if specified
   if (req.query.role) {
     const role = await Role.findOne({ name: req.query.role });
     if (role) {
-      query.roles = { $in: [role._id] };
+      filter.roles = { $in: [role._id] };
     }
   }
   
-  // Filter by email or username
+  // Filter by status
+  if (req.query.isActive !== undefined) {
+    filter.isActive = req.query.isActive === 'true';
+  }
+  
+  // Filter by verification status
+  if (req.query.isVerified !== undefined) {
+    filter.isVerified = req.query.isVerified === 'true';
+  }
+  
+  // Search by username or email
   if (req.query.search) {
-    query.$or = [
+    filter.$or = [
       { username: { $regex: req.query.search, $options: 'i' } },
       { email: { $regex: req.query.search, $options: 'i' } }
     ];
-  }
-  
-  // Filter by status
-  if (req.query.isActive) {
-    query.isActive = req.query.isActive === 'true';
   }
   
   // Pagination
@@ -44,13 +51,13 @@ exports.getAllUsers = catchAsync(async (req, res, next) => {
   
   // Execute query
   const [users, total] = await Promise.all([
-    User.find(query)
+    User.find(filter)
       .select('-password')
       .populate('roles', 'name')
       .sort({ createdAt: -1 })
       .skip(skip)
       .limit(limit),
-    User.countDocuments(query)
+    User.countDocuments(filter)
   ]);
   
   res.status(200).json({
@@ -151,7 +158,7 @@ exports.createUser = catchAsync(async (req, res, next) => {
         id: user._id,
         username: user.username,
         email: user.email,
-        roles: user.roles,
+        roles: roles || ['Student'],
         isActive: user.isActive
       }
     }
@@ -164,7 +171,7 @@ exports.createUser = catchAsync(async (req, res, next) => {
  * @access Admin
  */
 exports.updateUser = catchAsync(async (req, res, next) => {
-  const { username, email, roles, isActive } = req.body;
+  const { username, email, roles, isActive, isVerified } = req.body;
   
   // Find user
   const user = await User.findById(req.params.id);
@@ -176,16 +183,13 @@ exports.updateUser = catchAsync(async (req, res, next) => {
   // Update fields if provided
   if (username) user.username = username;
   if (email) user.email = email;
+  if (isActive !== undefined) user.isActive = isActive;
+  if (isVerified !== undefined) user.isVerified = isVerified;
   
   // Update roles if provided
   if (roles && Array.isArray(roles)) {
     const foundRoles = await Role.find({ name: { $in: roles } });
     user.roles = foundRoles.map(role => role._id);
-  }
-  
-  // Update active status if provided
-  if (isActive !== undefined) {
-    user.isActive = isActive;
   }
   
   // Handle profile picture if provided
@@ -210,8 +214,9 @@ exports.updateUser = catchAsync(async (req, res, next) => {
         id: user._id,
         username: user.username,
         email: user.email,
-        roles: user.roles,
-        isActive: user.isActive
+        roles: (await Role.find({ _id: { $in: user.roles } })).map(role => role.name),
+        isActive: user.isActive,
+        isVerified: user.isVerified
       }
     }
   });
@@ -264,7 +269,10 @@ exports.resetUserPassword = catchAsync(async (req, res, next) => {
   await user.save();
   
   // Send email with new password
-  await emailService.sendPasswordResetEmail(user, newPassword);
+  await emailService.sendPasswordResetEmail({
+    email: user.email,
+    name: user.username
+  }, newPassword);
   
   res.status(200).json({
     status: 'success',
@@ -272,3 +280,53 @@ exports.resetUserPassword = catchAsync(async (req, res, next) => {
     data: null
   });
 });
+
+/**
+ * Get user permissions
+ * @route GET /api/users/:id/permissions
+ * @access Admin
+ */
+exports.getUserPermissions = catchAsync(async (req, res, next) => {
+  const user = await User.findById(req.params.id).populate('roles');
+  
+  if (!user) {
+    return next(new AppError('User not found', 404));
+  }
+  
+  // Get all permissions from user's roles
+  const roleIds = user.roles.map(role => role._id);
+  
+  const roles = await Role.find({ _id: { $in: roleIds } }).populate('permissions');
+  
+  // Extract unique permissions
+  const permissions = new Set();
+  
+  roles.forEach(role => {
+    role.permissions.forEach(permission => {
+      permissions.add({
+        id: permission._id,
+        name: permission.name,
+        description: permission.description,
+        module: permission.module
+      });
+    });
+  });
+  
+  res.status(200).json({
+    status: 'success',
+    data: {
+      user: {
+        id: user._id,
+        username: user.username,
+        email: user.email
+      },
+      roles: user.roles.map(role => ({
+        id: role._id,
+        name: role.name
+      })),
+      permissions: Array.from(permissions)
+    }
+  });
+});
+
+module.exports = exports;

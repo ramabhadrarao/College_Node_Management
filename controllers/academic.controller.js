@@ -508,3 +508,5 @@ exports.getAcademicTerms = catchAsync(async (req, res, next) => {
     }
   });
 });
+
+module.exports = exports;

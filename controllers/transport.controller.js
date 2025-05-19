@@ -7,6 +7,7 @@ const Student = require('../models/Student');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 const fileService = require('../services/fileService');
+const notificationService = require('../services/notificationService');
 
 /**
  * Get all transportation routes
@@ -342,6 +343,28 @@ exports.updateVehicle = catchAsync(async (req, res, next) => {
 });
 
 /**
+ * Delete vehicle
+ * @route DELETE /api/transport/vehicles/:id
+ * @access Admin
+ */
+exports.deleteVehicle = catchAsync(async (req, res, next) => {
+  const vehicle = await TransportVehicle.findById(req.params.id);
+  
+  if (!vehicle) {
+    return next(new AppError('Vehicle not found', 404));
+  }
+  
+  // Delete vehicle
+  await TransportVehicle.findByIdAndDelete(req.params.id);
+  
+  res.status(200).json({
+    status: 'success',
+    message: 'Vehicle deleted successfully',
+    data: null
+  });
+});
+
+/**
  * Register student for transportation
  * @route POST /api/transport/register
  * @access Admin, Student
@@ -386,6 +409,19 @@ exports.registerStudent = catchAsync(async (req, res, next) => {
     .populate('student', 'name admissionNo')
     .populate('route', 'name routeNumber')
     .populate('academicYear', 'yearName');
+  
+  // Notify student
+  if (student.user) {
+    await notificationService.createNotification({
+      userId: student.user,
+      title: 'Transport Registration Successful',
+      message: `You have been registered for transport route: ${route.name}`,
+      type: 'transport',
+      relatedEntity: 'transport',
+      relatedId: registration._id,
+      sendEmail: true
+    });
+  }
   
   res.status(201).json({
     status: 'success',
@@ -444,3 +480,42 @@ exports.getRouteRegistrations = catchAsync(async (req, res, next) => {
     }
   });
 });
+
+/**
+ * Update registration status
+ * @route PATCH /api/transport/registrations/:id/status
+ * @access Admin
+ */
+exports.updateRegistrationStatus = catchAsync(async (req, res, next) => {
+  const { id } = req.params;
+  const { status } = req.body;
+  
+  if (!['active', 'inactive'].includes(status)) {
+    return next(new AppError('Invalid status value', 400));
+  }
+  
+  const registration = await TransportRegistration.findById(id);
+  
+  if (!registration) {
+    return next(new AppError('Registration not found', 404));
+  }
+  
+  // Update status
+  registration.status = status;
+  await registration.save();
+  
+  // Populate for response
+  await registration
+    .populate('student', 'name admissionNo')
+    .populate('route', 'name routeNumber')
+    .populate('academicYear', 'yearName');
+  
+  res.status(200).json({
+    status: 'success',
+    data: {
+      registration
+    }
+  });
+});
+
+module.exports = exports;

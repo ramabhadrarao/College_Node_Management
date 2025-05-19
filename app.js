@@ -86,8 +86,15 @@ const courseRoutes = require('./routes/course.routes');
 const libraryRoutes = require('./routes/library.routes');
 const dashboardRoutes = require('./routes/dashboard.routes');
 const roomRoutes = require('./routes/room.routes');
-
-
+// Import our new route files
+const userRoutes = require('./routes/user.routes');
+const academicRoutes = require('./routes/academic.routes');
+const counselingRoutes = require('./routes/counseling.routes');
+const transportRoutes = require('./routes/transport.routes');
+const scholarshipRoutes = require('./routes/scholarship.routes');
+const notificationRoutes = require('./routes/notification.routes');
+const menuRoutes = require('./routes/menu.routes');
+const learningRoutes = require('./routes/learning.routes');
 // Mount routes
 app.use('/api/auth', authRoutes);
 app.use('/api/faculty', facultyRoutes);
@@ -104,7 +111,16 @@ app.use('/api/library', libraryRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/rooms', roomRoutes);
 
+// Mount our new routes
+app.use('/api/users', userRoutes);
+app.use('/api/academic', academicRoutes);
+app.use('/api/counseling', counselingRoutes);
+app.use('/api/transport', transportRoutes);
+app.use('/api/scholarships', scholarshipRoutes);
+app.use('/api/notifications', notificationRoutes);
 
+app.use('/api/menus', menuRoutes);
+app.use('/api/learning', learningRoutes);
 // Health check endpoint
 app.get('/health', (req, res) => {
   res.status(200).json({
