@@ -1,4 +1,4 @@
-// routes/faculty.routes.js
+// Fixed routes/faculty.routes.js
 const express = require('express');
 const router = express.Router();
 const facultyController = require('../controllers/faculty.controller');

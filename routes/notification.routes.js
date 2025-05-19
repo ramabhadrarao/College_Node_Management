@@ -1,9 +1,10 @@
-// routes/notification.routes.js
+// Fixed routes/notification.routes.js
 const express = require('express');
 const router = express.Router();
 const notificationController = require('../controllers/notification.controller');
 const { protect } = require('../middlewares/auth');
 const { validateBody } = require('../middlewares/validator');
+const { body } = require('express-validator');
 
 // All routes require authentication
 router.use(protect);
@@ -14,7 +15,7 @@ router.get('/', notificationController.getUserNotifications);
 // Mark notifications as read
 router.patch('/read', 
   validateBody([
-    'notificationIds' 
+    body('notificationIds').isArray().withMessage('Notification IDs must be an array')
   ]), 
   notificationController.markAsRead
 );
@@ -25,7 +26,7 @@ router.patch('/read-all', notificationController.markAllAsRead);
 // Delete notifications
 router.delete('/', 
   validateBody([
-    'notificationIds' 
+    body('notificationIds').isArray().withMessage('Notification IDs must be an array')
   ]), 
   notificationController.deleteNotifications
 );

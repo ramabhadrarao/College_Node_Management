@@ -1,4 +1,4 @@
-// models/AttendanceSummary.js
+// models/AttendanceSummary.js (Missing from previous implementation)
 const mongoose = require('mongoose');
 
 const AttendanceSummarySchema = new mongoose.Schema({
