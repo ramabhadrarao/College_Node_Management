@@ -6,3 +6,71 @@
 {"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 11:33:24"}
 {"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 11:34:10"}
 {"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 11:34:10"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"college-management-system","timestamp":"2025-05-19 11:36:11"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 11:36:15"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 11:36:15"}
+{"level":"info","message":"SIGINT received, shutting down gracefully","service":"college-management-system","timestamp":"2025-05-19 11:36:18"}
+{"level":"info","message":"MongoDB connected successfully for seeding","service":"college-management-system","timestamp":"2025-05-19 11:36:26"}
+{"level":"info","message":"Starting database seeding...","service":"college-management-system","timestamp":"2025-05-19 11:36:26"}
+{"level":"info","message":"Created directory: F:\\College_Node_Management\\uploads","service":"college-management-system","timestamp":"2025-05-19 11:36:26"}
+{"level":"info","message":"Created directory: F:\\College_Node_Management\\uploads\\faculty","service":"college-management-system","timestamp":"2025-05-19 11:36:26"}
+{"level":"info","message":"Created directory: F:\\College_Node_Management\\uploads\\faculty\\photo","service":"college-management-system","timestamp":"2025-05-19 11:36:26"}
+{"level":"info","message":"Created directory: F:\\College_Node_Management\\uploads\\faculty\\documents","service":"college-management-system","timestamp":"2025-05-19 11:36:26"}
+{"level":"info","message":"Created directory: F:\\College_Node_Management\\uploads\\faculty\\publication","service":"college-management-system","timestamp":"2025-05-19 11:36:26"}
+{"level":"info","message":"Created directory: F:\\College_Node_Management\\uploads\\faculty\\workshop","service":"college-management-system","timestamp":"2025-05-19 11:36:26"}
+{"level":"info","message":"Created directory: F:\\College_Node_Management\\uploads\\faculty\\qualification","service":"college-management-system","timestamp":"2025-05-19 11:36:26"}
+{"level":"info","message":"Created directory: F:\\College_Node_Management\\uploads\\faculty\\experience","service":"college-management-system","timestamp":"2025-05-19 11:36:26"}
+{"level":"info","message":"Created directory: F:\\College_Node_Management\\uploads\\students","service":"college-management-system","timestamp":"2025-05-19 11:36:26"}
+{"level":"info","message":"Created directory: F:\\College_Node_Management\\uploads\\students\\photo","service":"college-management-system","timestamp":"2025-05-19 11:36:26"}
+{"level":"info","message":"Created directory: F:\\College_Node_Management\\uploads\\students\\documents","service":"college-management-system","timestamp":"2025-05-19 11:36:26"}
+{"level":"info","message":"Created directory: F:\\College_Node_Management\\backups","service":"college-management-system","timestamp":"2025-05-19 11:36:26"}
+{"level":"info","message":"Created directory: F:\\College_Node_Management\\templates","service":"college-management-system","timestamp":"2025-05-19 11:36:26"}
+{"level":"info","message":"Created directory: F:\\College_Node_Management\\templates\\emails","service":"college-management-system","timestamp":"2025-05-19 11:36:26"}
+{"level":"info","message":"Created email template: welcome","service":"college-management-system","timestamp":"2025-05-19 11:36:26"}
+{"level":"info","message":"Created email template: password-reset","service":"college-management-system","timestamp":"2025-05-19 11:36:26"}
+{"level":"info","message":"Created email template: notification","service":"college-management-system","timestamp":"2025-05-19 11:36:26"}
+{"level":"info","message":"Created email template: status-update","service":"college-management-system","timestamp":"2025-05-19 11:36:26"}
+{"level":"info","message":"Seeding roles...","service":"college-management-system","timestamp":"2025-05-19 11:36:26"}
+{"level":"info","message":"5 roles seeded","service":"college-management-system","timestamp":"2025-05-19 11:36:26"}
+{"level":"info","message":"Seeding permissions...","service":"college-management-system","timestamp":"2025-05-19 11:36:26"}
+{"level":"info","message":"30 permissions seeded","service":"college-management-system","timestamp":"2025-05-19 11:36:26"}
+{"level":"info","message":"Assigning permissions to roles...","service":"college-management-system","timestamp":"2025-05-19 11:36:26"}
+{"level":"info","message":"Permissions assigned to roles","service":"college-management-system","timestamp":"2025-05-19 11:36:26"}
+{"level":"info","message":"Seeding resource types...","service":"college-management-system","timestamp":"2025-05-19 11:36:26"}
+{"level":"info","message":"7 resource types seeded","service":"college-management-system","timestamp":"2025-05-19 11:36:26"}
+{"level":"info","message":"Seeding users...","service":"college-management-system","timestamp":"2025-05-19 11:36:26"}
+{"level":"info","message":"Admin user created","service":"college-management-system","timestamp":"2025-05-19 11:36:26"}
+{"level":"info","message":"Seeding departments...","service":"college-management-system","timestamp":"2025-05-19 11:36:26"}
+{"level":"info","message":"5 departments seeded","service":"college-management-system","timestamp":"2025-05-19 11:36:26"}
+{"level":"info","message":"Seeding programs...","service":"college-management-system","timestamp":"2025-05-19 11:36:26"}
+{"$clusterTime":{"clusterTime":{"$timestamp":"7506034251221958719"},"signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}},"code":11000,"codeName":"DuplicateKey","keyPattern":{"code":1},"keyValue":{"code":"B.TECH"},"level":"error","message":"Error seeding database: Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: college_management_new_052025.programs index: code_1 dup key: { code: \"B.TECH\" }","ok":0,"operationTime":{"$timestamp":"7506034251221958719"},"service":"college-management-system","stack":"MongoServerError: Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: college_management_new_052025.programs index: code_1 dup key: { code: \"B.TECH\" }\n    at Connection.onMessage (F:\\College_Node_Management\\node_modules\\mongodb\\lib\\cmap\\connection.js:202:26)\n    at MessageStream.<anonymous> (F:\\College_Node_Management\\node_modules\\mongodb\\lib\\cmap\\connection.js:61:60)\n    at MessageStream.emit (node:events:518:28)\n    at processIncomingData (F:\\College_Node_Management\\node_modules\\mongodb\\lib\\cmap\\message_stream.js:124:16)\n    at MessageStream._write (F:\\College_Node_Management\\node_modules\\mongodb\\lib\\cmap\\message_stream.js:33:9)\n    at writeOrBuffer (node:internal/streams/writable:572:12)\n    at _write (node:internal/streams/writable:501:10)\n    at Writable.write (node:internal/streams/writable:510:10)\n    at Socket.ondata (node:internal/streams/readable:1009:22)\n    at Socket.emit (node:events:518:28)","timestamp":"2025-05-19 11:36:26"}
+{"level":"info","message":"MongoDB connected successfully for seeding","service":"college-management-system","timestamp":"2025-05-19 11:39:55"}
+{"level":"info","message":"Starting database seeding...","service":"college-management-system","timestamp":"2025-05-19 11:39:55"}
+{"level":"info","message":"Seeding roles...","service":"college-management-system","timestamp":"2025-05-19 11:39:55"}
+{"level":"info","message":"5 roles seeded","service":"college-management-system","timestamp":"2025-05-19 11:39:55"}
+{"level":"info","message":"Seeding permissions...","service":"college-management-system","timestamp":"2025-05-19 11:39:55"}
+{"level":"info","message":"30 permissions seeded","service":"college-management-system","timestamp":"2025-05-19 11:39:56"}
+{"level":"info","message":"Assigning permissions to roles...","service":"college-management-system","timestamp":"2025-05-19 11:39:56"}
+{"level":"info","message":"Permissions assigned to roles","service":"college-management-system","timestamp":"2025-05-19 11:39:56"}
+{"level":"info","message":"Seeding resource types...","service":"college-management-system","timestamp":"2025-05-19 11:39:56"}
+{"level":"info","message":"7 resource types seeded","service":"college-management-system","timestamp":"2025-05-19 11:39:56"}
+{"level":"info","message":"Seeding users...","service":"college-management-system","timestamp":"2025-05-19 11:39:56"}
+{"level":"info","message":"Admin user already exists","service":"college-management-system","timestamp":"2025-05-19 11:39:56"}
+{"level":"info","message":"Seeding departments...","service":"college-management-system","timestamp":"2025-05-19 11:39:56"}
+{"level":"info","message":"5 departments seeded","service":"college-management-system","timestamp":"2025-05-19 11:39:56"}
+{"level":"info","message":"Seeding programs...","service":"college-management-system","timestamp":"2025-05-19 11:39:56"}
+{"level":"info","message":"7 programs seeded","service":"college-management-system","timestamp":"2025-05-19 11:39:56"}
+{"level":"info","message":"Seeding branches...","service":"college-management-system","timestamp":"2025-05-19 11:39:56"}
+{"level":"info","message":"5 branches seeded","service":"college-management-system","timestamp":"2025-05-19 11:39:56"}
+{"level":"info","message":"Seeding academic years...","service":"college-management-system","timestamp":"2025-05-19 11:39:56"}
+{"level":"info","message":"3 academic years seeded","service":"college-management-system","timestamp":"2025-05-19 11:39:56"}
+{"level":"info","message":"Seeding semesters...","service":"college-management-system","timestamp":"2025-05-19 11:39:56"}
+{"level":"info","message":"2 semesters seeded","service":"college-management-system","timestamp":"2025-05-19 11:39:56"}
+{"level":"info","message":"Seeding regulations...","service":"college-management-system","timestamp":"2025-05-19 11:39:56"}
+{"level":"info","message":"2 regulations seeded","service":"college-management-system","timestamp":"2025-05-19 11:39:56"}
+{"level":"info","message":"Seeding course types...","service":"college-management-system","timestamp":"2025-05-19 11:39:56"}
+{"level":"info","message":"7 course types seeded","service":"college-management-system","timestamp":"2025-05-19 11:39:56"}
+{"level":"info","message":"Seeding notification templates...","service":"college-management-system","timestamp":"2025-05-19 11:39:56"}
+{"level":"info","message":"4 notification templates seeded","service":"college-management-system","timestamp":"2025-05-19 11:39:56"}
+{"level":"info","message":"Seeding system settings...","service":"college-management-system","timestamp":"2025-05-19 11:39:56"}
+{"level":"info","message":"12 system settings seeded","service":"college-management-system","timestamp":"2025-05-19 11:39:56"}

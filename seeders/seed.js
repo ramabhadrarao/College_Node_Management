@@ -1,3 +1,4 @@
+// Complete updated seeders/seed.js file
 // seeders/seed.js
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
@@ -524,24 +525,70 @@ async function seedPrograms() {
   const itDept = await Department.findOne({ code: 'IT' });
   
   const programs = [
-    { name: 'Bachelor of Technology', code: 'B.TECH', department: cseDept._id, duration: '4 years', degreeType: 'Bachelor\'s' },
-    { name: 'Bachelor of Technology', code: 'B.TECH', department: eeeDept._id, duration: '4 years', degreeType: 'Bachelor\'s' },
-    { name: 'Bachelor of Technology', code: 'B.TECH', department: mechDept._id, duration: '4 years', degreeType: 'Bachelor\'s' },
-    { name: 'Bachelor of Technology', code: 'B.TECH', department: civilDept._id, duration: '4 years', degreeType: 'Bachelor\'s' },
-    { name: 'Bachelor of Technology', code: 'B.TECH', department: itDept._id, duration: '4 years', degreeType: 'Bachelor\'s' },
-    { name: 'Master of Technology', code: 'M.TECH', department: cseDept._id, duration: '2 years', degreeType: 'Master\'s' },
-    { name: 'Master of Technology', code: 'M.TECH', department: eeeDept._id, duration: '2 years', degreeType: 'Master\'s' }
+    { 
+      name: 'Bachelor of Technology in Computer Science', 
+      code: 'B.TECH-CSE', 
+      department: cseDept._id, 
+      duration: '4 years', 
+      degreeType: 'Bachelor\'s' 
+    },
+    { 
+      name: 'Bachelor of Technology in Electrical Engineering', 
+      code: 'B.TECH-EEE', 
+      department: eeeDept._id, 
+      duration: '4 years', 
+      degreeType: 'Bachelor\'s' 
+    },
+    { 
+      name: 'Bachelor of Technology in Mechanical Engineering', 
+      code: 'B.TECH-MECH', 
+      department: mechDept._id, 
+      duration: '4 years', 
+      degreeType: 'Bachelor\'s' 
+    },
+    { 
+      name: 'Bachelor of Technology in Civil Engineering', 
+      code: 'B.TECH-CIVIL', 
+      department: civilDept._id, 
+      duration: '4 years', 
+      degreeType: 'Bachelor\'s' 
+    },
+    { 
+      name: 'Bachelor of Technology in Information Technology', 
+      code: 'B.TECH-IT', 
+      department: itDept._id, 
+      duration: '4 years', 
+      degreeType: 'Bachelor\'s' 
+    },
+    { 
+      name: 'Master of Technology in Computer Science', 
+      code: 'M.TECH-CSE', 
+      department: cseDept._id, 
+      duration: '2 years', 
+      degreeType: 'Master\'s' 
+    },
+    { 
+      name: 'Master of Technology in Electrical Engineering', 
+      code: 'M.TECH-EEE', 
+      department: eeeDept._id, 
+      duration: '2 years', 
+      degreeType: 'Master\'s' 
+    }
   ];
   
-  for (const program of programs) {
-    await Program.findOneAndUpdate(
-      { code: program.code, department: program.department },
-      program,
-      { upsert: true, new: true }
-    );
+  // Use insertMany for better performance and to avoid conflicts
+  try {
+    // First, remove existing programs to avoid conflicts
+    await Program.deleteMany({});
+    
+    // Then create all programs at once
+    await Program.insertMany(programs);
+    
+    logger.info(`${programs.length} programs seeded`);
+  } catch (error) {
+    logger.error('Error seeding programs:', error);
+    throw error;
   }
-  
-  logger.info(`${programs.length} programs seeded`);
 }
 
 /**
@@ -551,11 +598,11 @@ async function seedBranches() {
   logger.info('Seeding branches...');
   
   // Get programs
-  const btechCse = await Program.findOne({ code: 'B.TECH', department: (await Department.findOne({ code: 'CSE' }))._id });
-  const btechEee = await Program.findOne({ code: 'B.TECH', department: (await Department.findOne({ code: 'EEE' }))._id });
-  const btechMech = await Program.findOne({ code: 'B.TECH', department: (await Department.findOne({ code: 'MECH' }))._id });
-  const btechCivil = await Program.findOne({ code: 'B.TECH', department: (await Department.findOne({ code: 'CIVIL' }))._id });
-  const btechIt = await Program.findOne({ code: 'B.TECH', department: (await Department.findOne({ code: 'IT' }))._id });
+  const btechCse = await Program.findOne({ code: 'B.TECH-CSE' });
+  const btechEee = await Program.findOne({ code: 'B.TECH-EEE' });
+  const btechMech = await Program.findOne({ code: 'B.TECH-MECH' });
+  const btechCivil = await Program.findOne({ code: 'B.TECH-CIVIL' });
+  const btechIt = await Program.findOne({ code: 'B.TECH-IT' });
   
   const branches = [
     { name: 'Computer Science and Engineering', code: 'CSE', program: btechCse._id },
@@ -565,15 +612,19 @@ async function seedBranches() {
     { name: 'Information Technology', code: 'IT', program: btechIt._id }
   ];
   
-  for (const branch of branches) {
-    await Branch.findOneAndUpdate(
-      { code: branch.code, program: branch.program },
-      branch,
-      { upsert: true, new: true }
-    );
+  // Clean and insert branches
+  try {
+    // First, remove existing branches to avoid conflicts
+    await Branch.deleteMany({});
+    
+    // Then create all branches at once
+    await Branch.insertMany(branches);
+    
+    logger.info(`${branches.length} branches seeded`);
+  } catch (error) {
+    logger.error('Error seeding branches:', error);
+    throw error;
   }
-  
-  logger.info(`${branches.length} branches seeded`);
 }
 
 /**

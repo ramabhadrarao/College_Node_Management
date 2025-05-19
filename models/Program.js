@@ -8,8 +8,7 @@ const ProgramSchema = new mongoose.Schema({
   },
   code: {
     type: String,
-    required: true,
-    unique: true
+    required: true
   },
   department: {
     type: mongoose.Schema.Types.ObjectId,
@@ -31,5 +30,8 @@ const ProgramSchema = new mongoose.Schema({
 }, {
   timestamps: true
 });
+
+// Create a compound index to ensure uniqueness of code + department
+ProgramSchema.index({ code: 1, department: 1 }, { unique: true });
 
 module.exports = mongoose.model('Program', ProgramSchema);
