@@ -74,3 +74,5 @@
 {"level":"info","message":"4 notification templates seeded","service":"college-management-system","timestamp":"2025-05-19 11:39:56"}
 {"level":"info","message":"Seeding system settings...","service":"college-management-system","timestamp":"2025-05-19 11:39:56"}
 {"level":"info","message":"12 system settings seeded","service":"college-management-system","timestamp":"2025-05-19 11:39:56"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 11:40:14"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 11:40:14"}
