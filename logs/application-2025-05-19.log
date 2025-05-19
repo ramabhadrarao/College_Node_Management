@@ -4,3 +4,5 @@
 {"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 11:33:16"}
 {"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 11:33:24"}
 {"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 11:33:24"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 11:34:10"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 11:34:10"}
