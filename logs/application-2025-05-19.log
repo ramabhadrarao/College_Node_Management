@@ -89,3 +89,97 @@
 {"level":"error","message":"Invalid or expired token","service":"college-management-system","stack":"Error: Invalid or expired token\n    at F:\\College_Node_Management\\controllers\\auth.controller.js:184:17\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","statusCode":400,"timestamp":"2025-05-19 12:16:34"}
 {"level":"error","message":"Faculty validation failed: department: Cast to ObjectId failed for value \"DEPARTMENT_ID\" (type string) at path \"department\" because of \"BSONError\", status: `pending` is not a valid enum value for path `status`.","service":"college-management-system","stack":"ValidationError: Faculty validation failed: department: Cast to ObjectId failed for value \"DEPARTMENT_ID\" (type string) at path \"department\" because of \"BSONError\", status: `pending` is not a valid enum value for path `status`.\n    at Document.invalidate (F:\\College_Node_Management\\node_modules\\mongoose\\lib\\document.js:3219:32)\n    at model.$set (F:\\College_Node_Management\\node_modules\\mongoose\\lib\\document.js:1464:12)\n    at model.$set (F:\\College_Node_Management\\node_modules\\mongoose\\lib\\document.js:1119:16)\n    at model.Document (F:\\College_Node_Management\\node_modules\\mongoose\\lib\\document.js:165:12)\n    at model.Model (F:\\College_Node_Management\\node_modules\\mongoose\\lib\\model.js:123:12)\n    at new model (F:\\College_Node_Management\\node_modules\\mongoose\\lib\\model.js:4758:15)\n    at F:\\College_Node_Management\\node_modules\\mongoose\\lib\\model.js:2922:18\n    at Array.map (<anonymous>)\n    at Function.create (F:\\College_Node_Management\\node_modules\\mongoose\\lib\\model.js:2911:30)\n    at F:\\College_Node_Management\\controllers\\faculty.controller.js:71:35","statusCode":500,"timestamp":"2025-05-19 12:17:00"}
 {"level":"error","message":"Faculty validation failed: department: Cast to ObjectId failed for value \"DEPARTMENT_ID\" (type string) at path \"department\" because of \"BSONError\", status: `pending` is not a valid enum value for path `status`.","service":"college-management-system","stack":"ValidationError: Faculty validation failed: department: Cast to ObjectId failed for value \"DEPARTMENT_ID\" (type string) at path \"department\" because of \"BSONError\", status: `pending` is not a valid enum value for path `status`.\n    at Document.invalidate (F:\\College_Node_Management\\node_modules\\mongoose\\lib\\document.js:3219:32)\n    at model.$set (F:\\College_Node_Management\\node_modules\\mongoose\\lib\\document.js:1464:12)\n    at model.$set (F:\\College_Node_Management\\node_modules\\mongoose\\lib\\document.js:1119:16)\n    at model.Document (F:\\College_Node_Management\\node_modules\\mongoose\\lib\\document.js:165:12)\n    at model.Model (F:\\College_Node_Management\\node_modules\\mongoose\\lib\\model.js:123:12)\n    at new model (F:\\College_Node_Management\\node_modules\\mongoose\\lib\\model.js:4758:15)\n    at F:\\College_Node_Management\\node_modules\\mongoose\\lib\\model.js:2922:18\n    at Array.map (<anonymous>)\n    at Function.create (F:\\College_Node_Management\\node_modules\\mongoose\\lib\\model.js:2911:30)\n    at F:\\College_Node_Management\\controllers\\faculty.controller.js:71:35","statusCode":500,"timestamp":"2025-05-19 12:17:36"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 12:23:47"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 12:23:47"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:04:00"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:04:00"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:04:05"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:04:05"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:04:23"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:04:23"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:04:28"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:04:28"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:05:13"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:05:13"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:05:23"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:05:23"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:05:28"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:05:29"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:05:51"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:05:51"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:05:56"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:05:56"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:06:15"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:06:15"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:06:27"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:06:27"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:06:32"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:06:32"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:06:55"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:06:55"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:06:59"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:06:59"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:07:15"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:07:15"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:07:25"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:07:25"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:07:29"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:07:29"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:08:01"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:08:01"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:08:09"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:08:09"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:08:32"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:08:32"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:08:43"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:08:43"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:08:48"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:08:48"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:09:01"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:09:01"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:09:19"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:09:19"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:09:23"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:09:24"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:09:40"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:09:40"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:09:51"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:09:51"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:09:56"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:09:56"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:10:19"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:10:19"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:10:23"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:10:23"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:10:46"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:10:46"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:10:55"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:10:55"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:10:59"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:10:59"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:11:26"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:11:26"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:11:31"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:11:31"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:11:56"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:11:57"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:12:06"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:12:06"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:12:32"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:12:32"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:12:54"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:12:54"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:12:59"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:12:59"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:13:18"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:13:18"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:13:28"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:13:28"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:14:00"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:14:00"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:14:04"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:14:04"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:17:46"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:17:46"}
+{"level":"info","message":"Server running in development mode on port 3000","service":"college-management-system","timestamp":"2025-05-19 13:22:51"}
+{"level":"info","message":"MongoDB connected successfully","service":"college-management-system","timestamp":"2025-05-19 13:22:51"}

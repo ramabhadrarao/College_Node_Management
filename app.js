@@ -76,12 +76,34 @@ const authRoutes = require('./routes/auth.routes');
 const facultyRoutes = require('./routes/faculty.routes');
 const studentRoutes = require('./routes/student.routes');
 const adminRoutes = require('./routes/admin.routes');
+const academicCalendarRoutes = require('./routes/academicCalendar.routes');
+const attendanceRoutes = require('./routes/attendance.routes');
+const feeRoutes = require('./routes/fee.routes');
+const examRoutes = require('./routes/exam.routes');
+const documentRoutes = require('./routes/document.routes');
+const timetableRoutes = require('./routes/timetable.routes');
+const courseRoutes = require('./routes/course.routes');
+const libraryRoutes = require('./routes/library.routes');
+const dashboardRoutes = require('./routes/dashboard.routes');
+const roomRoutes = require('./routes/room.routes');
+
 
 // Mount routes
 app.use('/api/auth', authRoutes);
 app.use('/api/faculty', facultyRoutes);
 app.use('/api/students', studentRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/academic-calendar', academicCalendarRoutes);
+app.use('/api/attendance', attendanceRoutes);
+app.use('/api/fees', feeRoutes);
+app.use('/api/exams', examRoutes);
+app.use('/api/documents', documentRoutes);
+app.use('/api/timetable', timetableRoutes);
+app.use('/api/courses', courseRoutes);
+app.use('/api/library', libraryRoutes);
+app.use('/api/dashboard', dashboardRoutes);
+app.use('/api/rooms', roomRoutes);
+
 
 // Health check endpoint
 app.get('/health', (req, res) => {
